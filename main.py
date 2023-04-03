@@ -1,32 +1,21 @@
 #!/urs/bin/python3
 #-*- coding: utf-8 -*-
 
+from PyQt6 import QtWidgets
+from calc import Ui_w_app
 import sys
-import PyQt5
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
-from PyQt5 import uic
 
 
-class App(QWidget):
+class mywindow(QtWidgets.QMainWindow):
     def __init__(self):
-        self.start()
-
-    def start(self):
-        self.ui = uic.loadUi('calc.ui')
-        self.ui.show()
+        super(mywindow, self).__init__()
+        self.ui = Ui_w_app()
+        self.ui.setupUi(self)
 
 
+app = QtWidgets.QApplication(sys.argv)
 
+application = mywindow()
+application.show()
 
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ex = App()
-    app.exec_()
+sys.exit(app.exec())
